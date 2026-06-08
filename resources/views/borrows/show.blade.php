@@ -7,6 +7,12 @@
     $isAdmin = auth()->user()->isAdministrator();
     $statusTone = $borrow->status === 'pending' ? 'info' : ($borrow->status === 'borrowed' ? ($isOverdue ? 'danger' : 'warning') : (in_array($borrow->status, ['rejected', 'lost'], true) ? 'danger' : 'success'));
 @endphp
+<div class="mb-4">
+    <a href="{{ route('borrows.index') }}" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+        Back to records
+    </a>
+</div>
 <div class="surface p-6">
     <div class="mb-6 flex flex-wrap items-start justify-between gap-4">
         <div>

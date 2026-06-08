@@ -27,7 +27,7 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('students.create');
+        return view('students.create', ['student' => null]);
     }
 
     public function store(Request $request)
@@ -58,7 +58,7 @@ class StudentController extends Controller
 
     public function destroy(Student $student)
     {
-        if ($student->borrows()->where('status', 'borrowed')->exists()) {
+        if ($student->borrows()->whereIn('status', ['borrowed', 'pending'])->exists()) {
             return back()->with('error', 'This customer has active borrowings.');
         }
 

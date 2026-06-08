@@ -179,6 +179,20 @@
 
     .auth-grid { @apply min-h-screen bg-slate-900 text-white lg:grid lg:grid-cols-[1fr_.9fr]; }
     .auth-art { @apply relative hidden overflow-hidden bg-slate-900 p-10 lg:flex lg:flex-col lg:justify-between xl:p-12; }
-    .auth-art::before { content: ""; @apply absolute inset-0 bg-[linear-gradient(135deg,rgba(16,185,129,.30),rgba(15,23,42,.2)_42%,rgba(37,99,235,.14))]; }
+    .auth-art::before { content: ""; @apply absolute inset-0 bg-[linear-gradient(135deg,rgba(99,102,241,.35),rgba(15,23,42,.2)_42%,rgba(139,92,246,.2))]; }
     .auth-card { @apply relative z-10 mx-auto w-full max-w-sm rounded-lg border border-slate-200/80 bg-white p-7 text-slate-950 shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:text-white sm:p-8; }
+    .auth-title { @apply text-2xl font-semibold tracking-tight text-slate-900 dark:text-white; }
+    .auth-subtitle { @apply mt-2 text-sm text-slate-500 dark:text-slate-400; }
+    .auth-label { @apply mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200; }
+    .auth-input { @apply w-full rounded-lg border border-slate-200 bg-white/90 px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none transition duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500 dark:hover:border-slate-700; }
+    .auth-error { @apply mt-1.5 text-xs text-rose-600 dark:text-rose-400; }
+    .auth-btn-primary { @apply flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500/20; }
+    .role-card { @apply flex flex-col items-center gap-2 rounded-lg border-2 border-slate-200 bg-white/80 p-4 text-slate-600 transition-all duration-200 cursor-pointer hover:border-indigo-300 hover:bg-indigo-50/50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-indigo-500; }
+    .role-card-active { @apply border-indigo-500 bg-indigo-50 text-indigo-700 dark:border-indigo-400 dark:bg-indigo-500/10 dark:text-indigo-300; }
+    .role-icon { @apply h-8 w-8 text-slate-400 transition-colors duration-200; }
+    .role-icon-active { @apply text-indigo-600 dark:text-indigo-400; }
+    .role-text { @apply text-sm font-semibold text-slate-600 dark:text-slate-300; }
+    .role-text-active { @apply text-indigo-700 dark:text-indigo-300; }
+    .role-badge-disabled { @apply text-[10px] text-slate-400 dark:text-slate-500; }
+    .btn-auth-toggle { @apply rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-white backdrop-blur-sm transition hover:bg-white/20; }
 }

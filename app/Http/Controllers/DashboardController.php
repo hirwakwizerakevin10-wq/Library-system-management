@@ -35,6 +35,7 @@ class DashboardController extends Controller
             'lostBooks' => LostBook::sum('quantity'),
             'totalStudents' => Student::count(),
             'recentBorrows' => Borrow::with(['book', 'student'])->latest()->take(8)->get(),
+            'categoryStats' => \App\Models\Category::withCount('books')->orderByDesc('books_count')->take(6)->get(),
         ]);
     }
 }

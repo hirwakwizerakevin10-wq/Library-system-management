@@ -38,7 +38,10 @@ class BookController extends Controller
 
     public function create()
     {
-        return view('books.create', ['categories' => Category::orderBy('name')->get()]);
+        return view('books.create', [
+            'book' => null,
+            'categories' => Category::orderBy('name')->get(),
+        ]);
     }
 
     public function store(Request $request)
@@ -86,7 +89,7 @@ class BookController extends Controller
 
     public function destroy(Book $book)
     {
-        if ($book->borrows()->where('status', 'borrowed')->exists()) {
+        if ($book->borrows()->whereIn('status', ['borrowed', 'pending'])->exists()) {
             return back()->with('error', 'Return or mark active borrowings before deleting this book.');
         }
 

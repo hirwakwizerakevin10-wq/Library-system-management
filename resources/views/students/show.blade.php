@@ -2,6 +2,12 @@
 @section('title', $student->full_name)
 @section('page-title', 'Customer Profile')
 @section('content')
+<div class="mb-4">
+    <a href="{{ route('students.index') }}" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+        Back to customers
+    </a>
+</div>
 <div class="grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
     <aside class="surface p-6">
         <div class="mb-4 grid h-14 w-14 place-items-center rounded-lg bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-100">
@@ -14,7 +20,7 @@
             <div class="metric"><div class="text-slate-500">Phone</div><div class="font-semibold">{{ $student->phone ?: 'Not provided' }}</div></div>
             <div class="metric"><div class="text-slate-500">Department/Class</div><div class="font-semibold">{{ $student->department }}</div></div>
         </div>
-        <div class="mt-6 flex gap-2"><a href="{{ route('students.edit', $student) }}" class="btn btn-primary">Edit</a><a href="{{ route('students.index') }}" class="btn btn-outline-secondary">Back</a></div>
+        <div class="mt-6 flex gap-2"><a href="{{ route('students.edit', $student) }}" class="btn btn-primary">Edit</a></div>
     </aside>
     <section class="surface">
         <div class="card-header"><h2 class="text-lg font-semibold">Borrowing History</h2></div>

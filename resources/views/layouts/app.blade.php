@@ -111,7 +111,6 @@
             <main class="page-wrap">
                 @include('partials.flash')
                 @yield('content')
-                {{ $slot ?? '' }}
             </main>
         </div>
     </div>

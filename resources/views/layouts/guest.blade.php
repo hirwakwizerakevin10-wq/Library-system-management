@@ -15,31 +15,43 @@
         <section class="auth-art">
             <div class="relative z-10">
                 <div class="flex items-center gap-3">
-                    <x-application-logo />
+                    <div class="khub-logo-mark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    </div>
                     <div>
-                        <div class="font-bold">Knowledge Hub</div>
-                        <div class="text-xs text-slate-300">Secure library access</div>
+                        <div class="font-bold text-white">Knowledge Hub</div>
+                        <div class="text-xs text-indigo-200">Library Management System</div>
                     </div>
                 </div>
             </div>
             <div class="relative z-10 max-w-lg">
-                <div class="mb-5 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-slate-100">Knowledge Hub Access</div>
-                <h1 class="text-4xl font-semibold leading-tight tracking-tight text-white">Knowledge Hub</h1>
-                <p class="mt-4 max-w-md text-base leading-7 text-slate-300">A secure, business-ready portal for book discovery, borrowing requests, and library operations.</p>
+                <div class="mb-5 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-indigo-100">Knowledge Hub Library</div>
+                <h1 class="text-4xl font-semibold leading-tight tracking-tight text-white">Your Gateway to Knowledge</h1>
+                <p class="mt-4 max-w-md text-base leading-7 text-indigo-200">Browse books, request borrows, and manage your reading journey — all in one place.</p>
+                <div class="mt-8 flex flex-col gap-3 text-sm text-indigo-200">
+                    <div class="flex items-center gap-2">
+                        <svg class="h-5 w-5 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Browse & search available books</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="h-5 w-5 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Submit borrow requests online</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="h-5 w-5 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                        <span>Track your borrowing history</span>
+                    </div>
+                </div>
             </div>
+            <div class="relative z-10 text-xs text-indigo-300/60">&copy; {{ date('Y') }} Knowledge Hub. All rights reserved.</div>
         </section>
 
         <section class="relative flex min-h-screen items-center justify-center px-4 py-8 sm:px-8">
-            <button class="absolute right-5 top-5 btn btn-outline-secondary !border-white/10 !bg-white/10 !text-white lg:!border-slate-200 lg:!bg-white/80 lg:!text-slate-700 lg:dark:!border-slate-700 lg:dark:!bg-slate-900 lg:dark:!text-white" @click="dark = !dark" aria-label="Toggle dark mode">
+            <button class="absolute right-5 top-5 btn-auth-toggle" @click="dark = !dark" aria-label="Toggle dark mode">
                 <svg x-show="!dark" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 3v2m0 14v2M3 12h2m14 0h2"/></svg>
                 <svg x-show="dark" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
             </button>
             <div class="auth-card animate-fade-up">
-                <div class="mb-6">
-                    <x-application-logo class="mb-4 text-slate-950 dark:text-white" />
-                    <h1 class="text-2xl font-semibold tracking-tight">Welcome to Knowledge Hub</h1>
-                    <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Sign in to continue, or register as a customer.</p>
-                </div>
                 {{ $slot }}
             </div>
         </section>

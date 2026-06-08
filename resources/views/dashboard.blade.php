@@ -111,11 +111,18 @@
             @endforeach
         </div>
         <div class="mt-6 flex h-56 items-end gap-3 rounded-3xl border border-slate-200/80 bg-gradient-to-b from-slate-50 to-white p-5 dark:border-slate-800 dark:from-slate-950/60 dark:to-slate-900/60">
-            @foreach ([52, 68, 44, 76, 61, 88, 73, 92, 67, 84, 78, 96] as $height)
-                <div class="flex flex-1 items-end">
-                    <div class="w-full rounded-t-xl bg-gradient-to-t from-brand-600 to-cyan-400 opacity-85 transition duration-300 hover:opacity-100" style="height: {{ $height }}%"></div>
+            @php
+                $maxCat = max(1, $categoryStats->max('books_count'));
+            @endphp
+            @forelse($categoryStats as $cat)
+                <div class="flex flex-1 flex-col items-center gap-2">
+                    <span class="text-xs font-bold text-slate-700 dark:text-slate-200">{{ $cat->books_count }}</span>
+                    <div class="w-full rounded-t-xl bg-gradient-to-t from-indigo-600 to-violet-400 opacity-85 transition duration-300 hover:opacity-100" style="height: {{ max(8, ($cat->books_count / $maxCat) * 100) }}%"></div>
+                    <span class="text-[10px] font-medium text-slate-500 text-center leading-tight">{{ Str::limit($cat->name, 10) }}</span>
                 </div>
-            @endforeach
+            @empty
+                <div class="flex flex-1 items-center justify-center text-sm text-slate-400">No category data yet</div>
+            @endforelse
         </div>
     </div>
 

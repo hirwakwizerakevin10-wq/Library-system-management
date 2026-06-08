@@ -2,6 +2,12 @@
 @section('title', $book->title)
 @section('page-title', 'Book Details')
 @section('content')
+<div class="mb-4">
+    <a href="{{ route('books.index') }}" class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+        Back to catalog
+    </a>
+</div>
 @php
     $isAdmin = auth()->user()->isAdministrator();
 @endphp
@@ -28,7 +34,6 @@
             @elseif($book->available_copies > 0)
                 <a href="{{ route('borrows.create', ['book_id' => $book->id]) }}" class="btn btn-primary">Request Book</a>
             @endif
-            <a href="{{ route('books.index') }}" class="btn btn-outline-secondary">Back</a>
         </div>
     </aside>
 

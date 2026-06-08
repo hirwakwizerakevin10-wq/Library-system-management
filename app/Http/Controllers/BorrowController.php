@@ -138,10 +138,15 @@ class BorrowController extends Controller
         }
 
         DB::transaction(function () use ($borrow) {
+            $borrow = Borrow::lockForUpdate()->findOrFail($borrow->id);
+            if ($borrow->status !== 'borrowed') {
+                return false;
+            }
             $book = Book::lockForUpdate()->findOrFail($borrow->book_id);
             $borrow->update(['status' => 'returned', 'return_date' => now()->toDateString()]);
             $book->increment('available_copies');
             $book->refresh()->update(['status' => 'available']);
+            return true;
         });
 
         return redirect()->route('borrows.index')->with('success', 'Book returned and inventory updated.');
